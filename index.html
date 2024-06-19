@@ -18,6 +18,7 @@
             color: #fff;
         }
         .profile-container {
+            margin-top: 30vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -96,6 +97,26 @@
             padding: 1.125vmin;
             border-radius: 0.5625vmin;
             margin-top: 4.25vh;
+            margin-bottom: 10vh;
+        }
+        .social-icons {
+            display: flex;
+            gap: 2vw; /* Расстояние между иконками в vw */
+            margin-top: 6vh; /* Отступ сверху для разделения с фотографией */
+        }
+        .social-icons a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .social-icons img {
+            min-width: 80px;
+            width: 4vmax; /* Размер иконок в vw */
+            height: auto; /* Автоматическая высота для сохранения пропорций */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .social-icons img:hover {
+            transform: scale(1.2);
+            opacity: 0.8;
         }
         .contact-info a {
             color: #fff; /* Цвет ссылок */
@@ -128,10 +149,21 @@
     <div class="profile-photo-container">
         <img src="photo.jfif" alt="Photo" class="profile-photo">
     </div>
+    <div class="social-icons">
+        <a href="https://web.telegram.org/k/#@PROMTECH116" target="_blank">
+            <img src="telegram.png" alt="Telegram" class="telegram-icon">
+        </a>
+        <a href="https://promtechexport.ru/" target="_blank">
+            <img src="company.png" alt="Company">
+        </a>
+        <a href="https://www.vk.com/yourprofile" target="_blank">
+            <img src="whatsapp.jpg" alt="WhatsApp">
+        </a>
+    </div>
     <div class="contact-info">
         <p><strong>Контакты:</strong></p>
         <p class="contact-email">Электронная почта: <a href="mailto:5601212@mail.ru">5601212@mail.ru</a></p>
-        <p class="contact-phone">Телефон: +7 (953) 489-86-71</p>
+        <p class="contact-phone">Телефон: +7 (904) 764-04-90</p>
     </div>
 </div>
 
@@ -146,14 +178,14 @@
             document.getElementById('name').innerText = 'Zakharov Vyacheslav Yevgenievich';
             document.querySelector('.contact-info').innerHTML = `<p><strong>Contacts:</strong></p>
                 <p class="contact-email">Email: <a href="mailto:5601212@mail.ru">5601212@mail.ru</a></p>
-                <p class="contact-phone">Phone: +7 (953) 489-86-71</p>`;
+                <p class="contact-phone">Phone: +7 (904) 764-04-90</p>`;
             currentLanguage = 'en';
             document.getElementById('toggle-button').innerText = 'Рус';
         } else {
             document.getElementById('name').innerText = 'Захаров Вячеслав Евгеньевич';
             document.querySelector('.contact-info').innerHTML = `<p><strong>Контакты:</strong></p>
                 <p class="contact-email">Электронная почта: <a href="mailto:5601212@mail.ru">5601212@mail.ru</a></p>
-                <p class="contact-phone">Телефон: +7 (953) 489-86-71</p>`;
+                <p class="contact-phone">Телефон: +7 (904) 764-04-90</p>`;
             currentLanguage = 'ru';
             document.getElementById('toggle-button').innerText = 'En';
         }
@@ -163,6 +195,5 @@
 <div class="language-switch">
     <button id="toggle-button" onclick="toggleLanguage()">En</button>
 </div>
-
 </body>
 </html>
