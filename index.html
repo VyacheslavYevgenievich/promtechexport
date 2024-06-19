@@ -17,25 +17,19 @@
             background: #333;
             color: #fff;
         }
-        .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 80vw;
-        }
         .profile-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 30vw; /* Ширина контейнера в процентах от ширины экрана */
-            margin-right: 5vw; /* Отступ справа для разделения с описанием */
         }
         .profile-photo-container {
             position: relative;
-            width: 100%; /* Ширина контейнера равна ширине родительского контейнера */
+            width: 45vmin; /* Ширина контейнера в vmin */
+            max-width: 500px; /* Максимальная ширина для больших экранов */
             height: 0;
-            padding-bottom: 100%; /* Высота контейнера равна его ширине для создания квадратного контейнера */
+            padding-bottom: 45vmin; /* Высота контейнера равна его ширине */
+            max-height: 500px; /* Максимальная высота для больших экранов */
+            margin-top: 6.25vh;
         }
         .profile-photo {
             position: absolute;
@@ -45,7 +39,7 @@
             height: 100%;
             border-radius: 50%; /* Круглое изображение */
             border: solid #fff; /* Рамка */
-            box-shadow: 0 0 2vw rgba(0, 0, 0, 0.7); /* Тень с использованием vw для размера */
+            box-shadow: 0 0 1.125vmin rgba(0, 0, 0, 0.7); /* Тень */
             transition: transform 0.3s ease;
         }
         .profile-photo:hover {
@@ -54,12 +48,12 @@
         .profile-photo-container::before, .profile-photo-container::after {
             content: '';
             position: absolute;
-            top: -2vw; /* Отступ в процентах от контейнера */
-            left: -2vw;
-            right: -2vw;
-            bottom: -2vw;
+            top: -1vmin; /* Отступ в vmin */
+            left: -1vmin;
+            right: -1vmin;
+            bottom: -1vmin;
             border-radius: 50%; /* Круглый круг вокруг изображения */
-            border: 0.3vw solid transparent; /* Рамка с использованием vw */
+            border: 1vmin solid transparent; /* Рамка в vmin */
             transition: border-color 0.5s ease;
         }
         .profile-photo-container::before {
@@ -80,32 +74,14 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        .social-icons {
-            display: flex;
-            gap: 2vw; /* Расстояние между иконками в vw */
-            margin-top: 6vh; /* Отступ сверху для разделения с фотографией */
-        }
-        .social-icons a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .social-icons img {
-            width: 4vw; /* Размер иконок в vw */
-            height: auto; /* Автоматическая высота для сохранения пропорций */
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .social-icons img:hover {
-            transform: scale(1.2);
-            opacity: 0.8;
-        }
         .name {
             cursor: pointer;
-            font-family: 'Anton', sans-serif; /* Применение шрифта Anton */
-            font-size: 2vw; /* Размер текста в vw */
+            font-family: 'Impact', sans-serif; /* Применение шрифта Anton */
+            font-size: 5.375vmin; /* Размер текста в vmin */
             font-weight: 100;
-            letter-spacing: -0.07vw; /* Расстояние между буквами */
+            letter-spacing: 0.05vmin; /* Расстояние между буквами */
             text-align: center; /* Выравнивание текста по центру */
-            margin-bottom: 5vh; /* Отступ снизу для разделения с фотографией */
+            margin: 2.25vh 0; /* Отступы */
             transition: font-weight 100ms ease-in-out;
             text-decoration: none; /* Убирает подчеркивание */
             color: #fff; /* Делает текст белым */
@@ -113,39 +89,32 @@
         .name:hover {
             font-weight: 600;
         }
-        .description-container {
-            width: 45vw; /* Ширина контейнера в процентах от ширины экрана */
-        }
-        .description-text {
-            font-size: 1.25vw; /* Размер текста в vw */
-            line-height: 1.5;
-            text-align: left;
-            margin-bottom: 2.5vh; /* Отступ снизу в высоте экрана */
-        }
         .contact-info {
-            position: fixed; /* Фиксированное позиционирование */
-            bottom: 2vw; /* Отступ снизу */
-            right: 2vw; /* Отступ справа */
-            text-align: left;
-            font-size: 1vw; /* Размер текста в vw */
+            text-align: center;
+            font-size: 2.25vmin; /* Размер текста в vmin */
             background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
-            padding: 1vw;
-            border-radius: 0.5vw;
+            padding: 1.125vmin;
+            border-radius: 0.5625vmin;
+            margin-top: 4.25vh;
+        }
+        .contact-info a {
+            color: #fff; /* Цвет ссылок */
+            text-decoration: none; /* Убирает подчеркивание */
         }
         .language-switch {
             position: absolute;
-            top: 2vw;
-            right: 2vw;
+            top: 2vmin;
+            right: 2vmin;
             display: flex;
-            gap: 1vw;
+            gap: 1vmin;
         }
         .language-switch button {
             background: #555;
             color: #fff;
             border: none;
-            padding: 0.5vw 1vw;
+            padding: 0.75vmin 1.5vmin;
             cursor: pointer;
-            font-size: 0.85vw;
+            font-size: 1.275vmin;
         }
         .language-switch button:hover {
             background: #777;
@@ -154,41 +123,18 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="profile-container">
-        <a href="https://web.telegram.org/k/#@PROMTECH116" class="name" id="name">Захаров Вячеслав Евгеньевич</a>
-        <div class="profile-photo-container">
-            <img src="photo.jfif" alt="Photo" class="profile-photo">
-        </div>
-        <div class="social-icons">
-            <a href="https://web.telegram.org/k/#@PROMTECH116" target="_blank">
-                <img src="telegram.png" alt="Telegram" class="telegram-icon">
-            </a>
-            <a href="https://promtechexport.ru/" target="_blank">
-                <img src="company.png" alt="Company">
-            </a>
-            <a href="https://www.vk.com/yourprofile" target="_blank">
-                <img src="whatsapp.jpg" alt="WhatsApp">
-            </a>
-        </div>
+<div class="profile-container">
+    <a href="https://web.telegram.org/k/#@PROMTECH116" class="name" id="name">Захаров Вячеслав Евгеньевич</a>
+    <div class="profile-photo-container">
+        <img src="photo.jfif" alt="Photo" class="profile-photo">
     </div>
-    <div class="description-container">
-        <div id="description-1" class="description-text">
-            <strong>Руководитель организации:</strong> <br>
-            Захаров Вячеслав Евгеньевич — профессионал с многолетним опытом работы в сфере технологий. Он обладает глубокими знаниями и богатым опытом в различных областях, включая производство, управление проектами и разработку инновационных решений. Вячеслав известен своим стратегическим мышлением и способностью решать сложные задачи.
-        </div>
-        <div id="description-2" class="description-text">
-            <strong>Компания:</strong> <br>
-            НПО "ПРОМТЕХЭКСПОРТ" поставляет резинотехническую продукцию практически для всех сфер жизнедеятельности человека, включая промышленность, сельское хозяйство и бытовые нужды. Компания располагает собственной производственной базой, оснащенной современными токарно-фрезерными станками для обработки деталей различной сложности. Здесь создаются гидравлические, промышленные рукава, и шланги, техпластины, клиновые ремни и соединительная арматура.
-        </div>
-        <div class="contact-info">
-            <p><strong>Контакты:</strong></p>
-            <p class="contact-email">Электронная почта: <a href="mailto:5601212@mail.ru" style="color: #fff;">5601212@mail.ru</a></p>
-            <p class="contact-phone">Телефон: +7 (953) 489-86-71</p>
-        </div>
+    <div class="contact-info">
+        <p><strong>Контакты:</strong></p>
+        <p class="contact-email">Электронная почта: <a href="mailto:5601212@mail.ru">5601212@mail.ru</a></p>
+        <p class="contact-phone">Телефон: +7 (953) 489-86-71</p>
     </div>
-
 </div>
+
 <!-- JavaScript для смены языка -->
 <script>
     // Переменная для отслеживания текущего языка
@@ -198,23 +144,15 @@
     function toggleLanguage() {
         if (currentLanguage === 'ru') {
             document.getElementById('name').innerText = 'Zakharov Vyacheslav Yevgenievich';
-            document.getElementById('description-1').innerHTML = `<strong>Organization leader:</strong> <br>
-                Zakharov Vyacheslav Yevgenievich is a professional with many years of experience in the field of technology. He has deep knowledge and rich experience in various areas, including production, project management, and development of innovative solutions. Vyacheslav is known for his strategic thinking and ability to solve complex problems.`;
-            document.getElementById('description-2').innerHTML = `<strong>Company:</strong> <br>
-                NGO "PROMTECHEXPORT" supplies rubber products for almost all spheres of human life, including industry, agriculture, and household needs. The company has its own production base equipped with modern turning and milling machines for processing parts of various complexity. Here are created hydraulic, industrial hoses, technical plates, wedge belts, and connecting fittings.`;
             document.querySelector('.contact-info').innerHTML = `<p><strong>Contacts:</strong></p>
-                <p class="contact-email">Email: <a href="mailto:5601212@mail.ru" style="color: #fff;">5601212@mail.ru</a></p>
+                <p class="contact-email">Email: <a href="mailto:5601212@mail.ru">5601212@mail.ru</a></p>
                 <p class="contact-phone">Phone: +7 (953) 489-86-71</p>`;
             currentLanguage = 'en';
             document.getElementById('toggle-button').innerText = 'Рус';
         } else {
             document.getElementById('name').innerText = 'Захаров Вячеслав Евгеньевич';
-            document.getElementById('description-1').innerHTML = `<strong>Руководитель организации:</strong> <br>
-                Захаров Вячеслав Евгеньевич — профессионал с многолетним опытом работы в сфере технологий. Он обладает глубокими знаниями и богатым опытом в различных областях, включая производство, управление проектами и разработку инновационных решений. Вячеслав известен своим стратегическим мышлением и способностью решать сложные задачи.`;
-            document.getElementById('description-2').innerHTML = `<strong>Компания:</strong> <br>
-                НПО "ПРОМТЕХЭКСПОРТ" поставляет резинотехническую продукцию практически для всех сфер жизнедеятельности человека, включая промышленность, сельское хозяйство и бытовые нужды. Компания располагает собственной производственной базой, оснащенной современными токарно-фрезерными станками для обработки деталей различной сложности. Здесь создаются гидравлические, промышленные рукава, и шланги, техпластины, клиновые ремни и соединительная арматура.`;
             document.querySelector('.contact-info').innerHTML = `<p><strong>Контакты:</strong></p>
-                <p class="contact-email">Электронная почта: <a href="mailto:5601212@mail.ru" style="color: #fff;">5601212@mail.ru</a></p>
+                <p class="contact-email">Электронная почта: <a href="mailto:5601212@mail.ru">5601212@mail.ru</a></p>
                 <p class="contact-phone">Телефон: +7 (953) 489-86-71</p>`;
             currentLanguage = 'ru';
             document.getElementById('toggle-button').innerText = 'En';
@@ -225,5 +163,6 @@
 <div class="language-switch">
     <button id="toggle-button" onclick="toggleLanguage()">En</button>
 </div>
+
 </body>
 </html>
