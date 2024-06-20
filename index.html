@@ -76,9 +76,8 @@
         .name {
             cursor: pointer;
             font-family: 'Impact', sans-serif; /* Применение шрифта Anton */
-            font-min-size: 5.375vmax;
-            font-max-size: 5.375vmax;
-            font-size: 5.375vmax; /* Размер текста в vmin */
+            font-max-size: 50px;
+            font-size: calc(7vmin); /* Размер текста в vmin */
             font-weight: 200;
             letter-spacing: 0.05vmin; /* Расстояние между буквами */
             text-align: center; /* Выравнивание текста по центру */
@@ -89,6 +88,9 @@
         }
         .name:hover {
             font-weight: 600;
+        }
+        .no-wrap {
+            white-space: nowrap; /* Запрещает перенос текста */
         }
         .contact-info {
             text-align: center;
@@ -145,7 +147,7 @@
 <body>
 
 <div class="profile-container">
-    <a href="https://web.telegram.org/k/#@PROMTECH116" class="name" id="name">Вячеслав Евгеньевич Захаров</a>
+    <a href="https://web.telegram.org/k/#@PROMTECH116" class="name" id="name">Захаров <span class="no-wrap">Вячеслав Евгеньевич</span></a>
     <div class="profile-photo-container">
         <img src="photo.jfif" alt="Photo" class="profile-photo">
     </div>
@@ -175,14 +177,14 @@
     // Функция для смены языка
     function toggleLanguage() {
         if (currentLanguage === 'ru') {
-            document.getElementById('name').innerText = 'Zakharov Vyacheslav Yevgenievich';
+            document.getElementById('name').innerHTML = 'Zakharov <span class="no-wrap">Vyacheslav Yevgenievich</span>';
             document.querySelector('.contact-info').innerHTML = `<p><strong>Contacts:</strong></p>
                 <p class="contact-email">Email: <a href="mailto:5601212@mail.ru">5601212@mail.ru</a></p>
                 <p class="contact-phone">Phone: +7 (904) 764-04-90</p>`;
             currentLanguage = 'en';
             document.getElementById('toggle-button').innerText = 'Рус';
         } else {
-            document.getElementById('name').innerText = 'Захаров Вячеслав Евгеньевич';
+            document.getElementById('name').innerHTML = 'Захаров<br><span class="no-wrap">Вячеслав Евгеньевич</span>';
             document.querySelector('.contact-info').innerHTML = `<p><strong>Контакты:</strong></p>
                 <p class="contact-email">Электронная почта: <a href="mailto:5601212@mail.ru">5601212@mail.ru</a></p>
                 <p class="contact-phone">Телефон: +7 (904) 764-04-90</p>`;
