@@ -26,11 +26,9 @@
         .profile-photo-container {
             position: relative;
             width: 45vmin; /* Ширина контейнера в vmin */
-            max-width: 500px; /* Максимальная ширина для больших экранов */
-            height: 0;
-            padding-bottom: 45vmin; /* Высота контейнера равна его ширине */
-            max-height: 500px; /* Максимальная высота для больших экранов */
+            height: 45vmin;
             margin-top: 6.25vh;
+
         }
         .profile-photo {
             position: absolute;
@@ -78,6 +76,8 @@
         .name {
             cursor: pointer;
             font-family: 'Impact', sans-serif; /* Применение шрифта Anton */
+            font-min-size: 5.375vmin;
+            font-max-size: 5.375vmin;
             font-size: 5.375vmin; /* Размер текста в vmin */
             font-weight: 200;
             letter-spacing: 0.05vmin; /* Расстояние между буквами */
@@ -109,7 +109,7 @@
             color: inherit;
         }
         .social-icons img {
-            min-width: 80px;
+            min-width: 40px;
             width: 4vmax; /* Размер иконок в vw */
             height: auto; /* Автоматическая высота для сохранения пропорций */
             transition: transform 0.3s ease, opacity 0.3s ease;
